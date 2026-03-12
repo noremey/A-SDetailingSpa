@@ -1,0 +1,19 @@
+# CORS handled by PHP setCorsHeaders() in config/app.php
+# Do NOT add CORS headers here to avoid duplicate header issues
+
+# Block directory listing
+Options -Indexes
+
+# Block direct access to config directory
+<FilesMatch "^(database|app)\.php$">
+    <If "%{REQUEST_URI} =~ m#/config/#">
+        Order allow,deny
+        Deny from all
+    </If>
+</FilesMatch>
+
+# Block access to sensitive files
+<FilesMatch "\.(sql|log|bak|env|ini|sh)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

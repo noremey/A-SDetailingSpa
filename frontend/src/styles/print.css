@@ -1,0 +1,99 @@
+@media print {
+  /* Hide everything by default */
+  body * {
+    visibility: hidden;
+  }
+
+  /* ─── Receipt Print (80mm thermal) ─── */
+  #receipt-print-area,
+  #receipt-print-area * {
+    visibility: visible !important;
+  }
+
+  #receipt-print-area {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 72mm !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    z-index: 99999 !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  /* Ensure all parent containers don't clip the receipt */
+  #receipt-print-area ~ *,
+  #receipt-print-area ~ * * {
+    display: none !important;
+  }
+
+  #receipt-print-area,
+  #receipt-print-area * {
+    color: #000 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  #receipt-print-area img {
+    max-width: 36mm;
+    max-height: 12mm;
+    filter: grayscale(100%);
+  }
+
+  #receipt-print-area .receipt-separator {
+    border-top: 1px dashed #000;
+    margin: 3px 0;
+  }
+
+  #receipt-print-area {
+    page-break-inside: avoid;
+  }
+
+  #receipt-print-area * {
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* ─── QR Poster Print (A4) ─── */
+  #qr-poster-print,
+  #qr-poster-print * {
+    visibility: visible !important;
+  }
+
+  #qr-poster-print {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm 25mm;
+    margin: 0;
+    z-index: 99999 !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #qr-poster-print img {
+    filter: none;
+  }
+
+  /* ─── Shared ─── */
+  @page {
+    margin: 0;
+  }
+
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

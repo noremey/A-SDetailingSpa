@@ -1,0 +1,4 @@
+# Block ALL direct access to config files
+# These files should only be included by PHP, never accessed via URL
+Order deny,allow
+Deny from all

@@ -1,0 +1,32 @@
+# ============================================
+# API Directory - Security Config
+# ============================================
+
+Options -Indexes
+
+# --- Pass Authorization header to PHP (XAMPP/Apache fix) ---
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP:Authorization} .+
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# --- Block config files (contains DB credentials) ---
+<Files "config.php">
+    Require all denied
+</Files>
+<Files "staff-config.php">
+    Require all denied
+</Files>
+
+# --- Only allow PHP files to be accessed ---
+<FilesMatch "\.(?!php$)">
+    Require all denied
+</FilesMatch>
+
+# --- API JSON Headers ---
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header unset X-Powered-By
+</IfModule>

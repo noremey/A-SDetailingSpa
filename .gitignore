@@ -1,0 +1,24 @@
+# Dependencies
+frontend/node_modules/
+
+# Environment & credentials
+api/config/database.php
+api/config/secrets.php
+api/config/firebase-service-account.json
+api/config/.fcm-token-cache.json
+
+# Uploads (user data)
+uploads/*
+!uploads/.gitkeep
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Claude dev files
+.claude/
+
+# Build zip
+*.zip

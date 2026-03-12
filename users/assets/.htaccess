@@ -1,0 +1,15 @@
+# ============================================
+# Assets Directory - Security Config
+# ============================================
+
+Options -Indexes
+
+# --- Only allow JS, CSS, and font files ---
+<FilesMatch "\.(?!(js|css|woff|woff2|ttf|eot|svg)$)">
+    Require all denied
+</FilesMatch>
+
+# --- No PHP execution ---
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch>

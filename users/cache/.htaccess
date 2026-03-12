@@ -1,0 +1,15 @@
+# ============================================
+# Cache Directory - Security Config
+# ============================================
+
+Options -Indexes
+
+# --- Only allow image files ---
+<FilesMatch "\.(?!(jpg|jpeg|png|gif|ico|webp)$)">
+    Require all denied
+</FilesMatch>
+
+# --- No PHP execution ---
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch>
