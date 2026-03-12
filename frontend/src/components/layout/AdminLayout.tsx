@@ -141,12 +141,12 @@ function StaffLayout() {
       </header>
 
       {/* ===== Page Content ===== */}
-      <main className="flex-1 p-4 pb-24">
+      <main className="flex-1 p-4 pb-28">
         <Outlet />
       </main>
 
       {/* ===== Bottom Navigation Bar ===== */}
-      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]">
+      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] safe-area-pb">
         <div className="flex items-center justify-around px-2 py-1.5 max-w-lg mx-auto">
           {bottomItems.map(({ to, icon: Icon, label, end }) => {
             const active = isActive(to, end);
@@ -190,8 +190,6 @@ function StaffLayout() {
           )}
         </div>
 
-        {/* Safe area for iPhone notch */}
-        <div className="h-safe-area-bottom bg-white" />
       </nav>
 
       {/* ===== Full-Screen Menu Modal ===== */}
